@@ -1,11 +1,17 @@
 """CSV -> static HTML dashboard; Python standard library only."""
 from pathlib import Path
 import csv, json, html, sys
+from data_quality import inspect_csv, format_report
 ROOT=Path(__file__).resolve().parents[1]
 DATA=ROOT/'data'/'sample_prices.csv'
 OUT=ROOT/'site'/'index.html'
 
 def main():
+    diagnostics=inspect_csv(DATA)
+    print(format_report(diagnostics))
+    if (diagnostics['missing_columns'] or diagnostics['missing_values']
+            or diagnostics['duplicate_keys'] or diagnostics['invalid_months']):
+        raise ValueError('Input CSV failed quality checks')
     with DATA.open(encoding='utf-8-sig',newline='') as f:
         records=list(csv.DictReader(f))
     assert records,'No input rows'
