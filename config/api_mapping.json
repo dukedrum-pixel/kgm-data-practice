@@ -1,0 +1,21 @@
+{
+  "url": "https://example.invalid/replace-with-official-https-api",
+  "key_param": "serviceKey",
+  "params": {
+    "type": "json",
+    "pageNo": "1",
+    "numOfRows": "100"
+  },
+  "rows_path": [
+    "response",
+    "body",
+    "items",
+    "item"
+  ],
+  "fields": {
+    "month": "yearMonth",
+    "item_code": "itemCode",
+    "item_name": "itemName",
+    "index_value": "priceIndex"
+  }
+}

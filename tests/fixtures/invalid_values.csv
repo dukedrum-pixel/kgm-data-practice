@@ -1,0 +1,5 @@
+month,item_code,item_name,index_value,source
+2025-01,STEEL,Steel,not-a-number,sample
+2025-02,ALUM,Alum,NaN,sample
+2025-03,COPPER,Copper,0,sample
+2025-04,IRON,Iron,-1,sample
